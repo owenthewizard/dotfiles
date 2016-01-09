@@ -119,6 +119,7 @@ fi
 
 alias cp='cp -i'
 alias mv='mv -i'
+alias mkdir='mkdir -p'
 
 #alias rm='rm -i --preserve-root'
 #alias rm='trash'
