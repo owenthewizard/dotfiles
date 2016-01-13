@@ -1,10 +1,26 @@
-#!/bin/sh
+#!/bin/bash
 
-if [! command -v pwd > /dev/null 2>&1 ]; then
-	printf '%s\n' "This script requires 'pwd'."
-	exit 127
-fi
+read -n 1 -p 'Do you wish to install/upgrade "~/.bashrc"? (y/N) ' bashyn 
+[[ -z "$bashyn" ]] && bashyn=n
+case "$bashyn" in
+	y|Y )	ln -sf $(pwd)/bashrc ~/.bashrc ;;	
+esac
 
-ln -s $(pwd)/bashrc ~/.bashrc
-ln -s $(pwd)/vimrc ~/.vimrc
-ln -s $(pwd)/nanorc ~/.nanorc
+echo
+
+read -n 1 -p 'Do you wish to install/upgrade "~/.nanorc"? (y/N) ' nanoyn
+[[ -z "$nanoyn" ]] && nanoyn=n
+case "$nanoyn" in
+	y|Y )	ln -sf $(pwd)/nanorc ~/.nanorc ;;
+esac
+
+echo
+
+read -n 1 -p 'Do you wish to install/upgrade "~/.vimrc"? (y/N) ' vimyn
+[[ -z "$vimyn" ]] && vimyn=n
+case "$vimyn" in
+	y|Y ) ln -sf $(pwd)/vimrc ~/.vimrc ;;
+esac
+
+echo
+exit 0
