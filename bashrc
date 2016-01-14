@@ -9,16 +9,22 @@
 [[ $- != *i* ]] && return
 
 #########################
-# Variables		#
+# Variables				#
 #########################
 
 # You might want to change these...
 
 ## TEXT EDITOR
-# Set _CHVISUAL to false and select prefered editor if you wish
-# The export VISUAL settings here take no effect if _CHVISUAL is true
-_CHVISUAL=true
-export VISUAL="nano"
+# Creates a lock file after asking the user's prefered $VISUAL
+if [[ -f ~/.visual ]]; then
+	source ~/.visual
+else
+	touch ~/.visual && chmod u+x ~/.visual
+	read -p 'Enter your preffered text editor ($VISUAL) in quotes. i.e. "nano", "gedit", "vim", "emacs"... ' _VISUAL
+	printf %s "export VISUAL="$_VISUAL"" > ~/.visual
+	source ~/.visual
+fi
+
 export EDITOR="$VISUAL"
 
 ## 256 COLORS
@@ -160,45 +166,47 @@ shopt -s histappend
 shopt -s checkwinsize
 
 #########################
-# Text Editor		#
+# Text Editor			#
 #########################
+
+# NOT WORKING
 
 # Set $EDITOR and $VISUAL based on DE, if not set by user
 #TODO: Change to case if possible
 
 # G.N.O.M.E. and Cinnamon (gedit)
-if command -v gedit > /dev/null 2>&1 && pgrep "gnome-session" > /dev/null 2>&1 || command -v gedit > /dev/null 2>&1 && pgrep -f "cinnamon-session" > /dev/null 2>&1; then
-	export VISUAL="gedit"
-	export EDITOR="$VISUAL"
+#if command -v gedit > /dev/null 2>&1 && pgrep "gnome-session" > /dev/null 2>&1 || command -v gedit > /dev/null 2>&1 && pgrep -f "cinnamon-session" > /dev/null 2>&1; then
+#	export VISUAL="gedit"
+#	export EDITOR="$VISUAL"
 # KDE (kate)
-elif command -v kate > /dev/null 2>&1 && pgrep "kde-session" > /dev/null 2>&1; then
-	export VISUAL="kate"	
-	export EDITOR="$VISUAL"
+#elif command -v kate > /dev/null 2>&1 && pgrep "kde-session" > /dev/null 2>&1; then
+#	export VISUAL="kate"	
+#	export EDITOR="$VISUAL"
 # Mate (pluma)
-elif command -v pluma > /dev/null 2>&1 && pgrep "mate-session" > /dev/null 2>&1; then
-	export VISUAL="pluma"
-	export EDITOR="$VISUAL"
+#elif command -v pluma > /dev/null 2>&1 && pgrep "mate-session" > /dev/null 2>&1; then
+#	export VISUAL="pluma"
+#	export EDITOR="$VISUAL"
 # LXDE (leafpad)
-elif command -v leafpad > /dev/null 2>&1 && pgrep "lxsession" > /dev/null 2>&1; then
-	export VISUAL="leafpad"
-	export EDITOR="$VISUAL"
+#elif command -v leafpad > /dev/null 2>&1 && pgrep "lxsession" > /dev/null 2>&1; then
+#	export VISUAL="leafpad"
+#	export EDITOR="$VISUAL"
 # LXQt (juffed)
-elif command -v juffed > /dev/null 2>&1 && pgrep "lxqt-session" > /dev/null 2>&1; then
-	export VISUAL="juffed"
-	export EDITOR="$VISUAL"
+#elif command -v juffed > /dev/null 2>&1 && pgrep "lxqt-session" > /dev/null 2>&1; then
+#	export VISUAL="juffed"
+#	export EDITOR="$VISUAL"
 # Xfce (mousepad)
-elif command -v mousepad > /dev/null 2>&1 && pgrep "xfce4-session" > /dev/null 2>&1; then
-	export VISUAL="mousepad"
-	export EDITOR="$VISUAL"
+#elif command -v mousepad > /dev/null 2>&1 && pgrep "xfce4-session" > /dev/null 2>&1; then
+#	export VISUAL="mousepad"
+#	export EDITOR="$VISUAL"
 # Xfce (leafpad)
-elif command -v leafpad > /dev/null 2>&1 && pgrep "xfce4-session" > /dev/null 2>&1; then
-	export VISUAL="leafpad"
-	export EDITOR="$VISUAL"
+#elif command -v leafpad > /dev/null 2>&1 && pgrep "xfce4-session" > /dev/null 2>&1; then
+#	export VISUAL="leafpad"
+#	export EDITOR="$VISUAL"
 # Fallback to nano
-else
-	export VISUAL="nano"
-	export EDITOR="$VISUAL"
-fi
+#else
+#	export VISUAL="nano"
+#	export EDITOR="$VISUAL"
+#fi
 
 #########################
 # Prompt		#
