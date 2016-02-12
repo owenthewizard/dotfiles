@@ -10,3 +10,4 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 set nowrap
+set noarabic

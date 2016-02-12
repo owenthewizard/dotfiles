@@ -146,7 +146,7 @@ alias egrep='grep -E'
 if [[ "$_SUNOS" = true ]]; then
 	alias ls='/usr/gnu/bin/ls -p --color=auto'
 else
-	alias ls='ls ${ls_color} -p'
+	alias ls='ls ${ls_color} -p --quoting-style=escape'
 fi
 
 alias ll='ls -lh'
