@@ -129,7 +129,7 @@ alias ln='ln -i'
 
 # Colorize grep and diff (requires colordiff)
 alias grep='grep --color=auto'
-if [[ (command -v colordiff > /dev/null 2>&1) ]]; then
+if command -v colordiff > /dev/null 2>&1; then
 	alias diff='colordiff'
 fi
 
