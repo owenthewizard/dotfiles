@@ -123,7 +123,7 @@ alias mv='mv -i'
 alias mkdir='mkdir -p'
 #alias rm='rm -i --preserve-root'
 #alias rm='trash'
-alias rm='printf %s\n "Use del."'
+#alias rm='printf %s\n "Use trash."'
 alias del='rm -i --preserve-root'
 alias ln='ln -i'
 
