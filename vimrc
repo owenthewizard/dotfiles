@@ -27,11 +27,12 @@ scriptencoding utf-8
 set wildmenu
 set wildmode=list:longest,full
 "
-if [[ -d /var/tmp/{vimbackup,vimswap,vimviews} ]]
-	set backupdir=/var/tmp/vimbackup//
-	set directory=/var/tmp/vimswap//
-	set viewdir=/var/tmp/vimviews//
-else
-	mkdir -p /var/tmp/{vimbackup,vimswap,vimviews}
-	source ~/.vimrc
-endif
+"FIXME
+"if [[ -d /var/tmp/{vimbackup,vimswap,vimviews} ]]
+"	set backupdir=/var/tmp/vimbackup//
+"	set directory=/var/tmp/vimswap//
+"	set viewdir=/var/tmp/vimviews//
+"else
+"	mkdir -p /var/tmp/{vimbackup,vimswap,vimviews}
+"	source ~/.vimrc
+"endif
