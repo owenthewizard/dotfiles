@@ -5,7 +5,7 @@ set nocompatible
 set background=dark
 filetype plugin indent on
 set t_Co=256
-set tem=$TERM
+set term=$TERM
 set mouse=a
 syntax enable
 set number
