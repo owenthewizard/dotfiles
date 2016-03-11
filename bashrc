@@ -185,3 +185,5 @@ else # Uglier 8 colour prompt
 		PS1="[\[\e[32m\]\u\[\e[m\]@\h \[\e[34m\]\w\[\e[m\]]\\$ "
 	fi
 fi
+
+# vim: set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
