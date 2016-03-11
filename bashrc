@@ -1,9 +1,8 @@
-#
-# ~/.bashrc
-#
-
 # owenthewizard's ~/.bashrc
-# Much of this code is from from joeledwards's bashrc on GitHub
+# Some of this is from...
+# joeledwards's bashrc on GitHub
+# brakertech.com/one-liners/bashrbashrc-tweaks-for-rhel-or-centos
+# 
 
 # Only run if shell is interactive
 [[ $- != *i* ]] && return
@@ -19,8 +18,14 @@ else
 	printf '%s\n' "export VISUAL="$_VISUAL"" > ~/.visual
 	source ~/.visual
 fi
-
 export EDITOR="$VISUAL"
+
+## CUSTOM ALIASES
+# A place for user-defined aliases that should not be shipped by default
+
+if [[ -f ~/.bash_aliases ]]; then
+	source ~/.bash_aliases
+fi
 
 ## 256 COLORS
 #TODO
@@ -126,6 +131,11 @@ alias mkdir='mkdir -p'
 #alias rm='printf %s\n "Use trash."'
 alias del='rm -i --preserve-root'
 alias ln='ln -i'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+alias wget='wget -c'
+alias ports='netstat -tulanp'
 
 # Colorize grep and diff (requires colordiff)
 alias grep='grep --color=auto'
@@ -152,7 +162,7 @@ alias la='ls -A'
 
 HISTSIZE=8192
 HISTFILESIZE=2048
-HISTCONTROL=ignoreboth #Lines beginning with spaces and blank lines are ignored
+HISTCONTROL=ignoreboth # Lines beginning with spaces and blank lines are ignored
 HISTTIMEFORMAT="%D - %T : "
 HISTIGNORE="history*:exit*:fg:bg"
 shopt -s histappend
@@ -162,29 +172,7 @@ shopt -s checkwinsize
 # Prompt				#
 #########################
 
-## PROMPT OPTIONS
-#user_color=$Green
-#host_color=
-#path_color=$Blue
-#prompt_symbol=\$
-#if [[ "$EUID" -eq 0 ]]; then # Options for root
-#	prompt_symbol=\#
-#	user_color=$Red
-#fi
-
-# Set the base prompt
-#BASE_PS1="\
-#\[$off\]\
-#\[$user_color\]\u\
-#\[$off\]@\
-#\[$host_color\]\h\
-#\[$off\]: \
-#\[$path_color\]\w\
-#\[$off\]$prompt_symbol "
-
-#PS1='["$BASE_PS1"]'
-
-if [[ "$TERM" = "xterm-256color" ]] || [[ $(tput colors) -eq 256 ]]; then # Nicer 256 colour prompt
+if [[ "$TERM" == "xterm-256color" ]] || [[ $(tput colors) -eq 256 ]]; then # Nicer 256 colour prompt
 	if [[ "$EUID" -eq 0 ]]; then
 		PS1="\[$(tput sgr0)\][\[\033[38;5;1m\]\u\\[$(tput sgr0)\]@\h \[\033[38;5;4m\]\w\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
 	else
