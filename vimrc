@@ -34,4 +34,4 @@ if [[ -d /var/tmp/{vimbackup,vimswap,vimviews} ]]
 else
 	mkdir -p /var/tmp/{vimbackup,vimswap,vimviews}
 	source ~/.vimrc
-fi
+endif
