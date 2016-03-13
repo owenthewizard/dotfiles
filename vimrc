@@ -20,8 +20,8 @@ set shiftround
 set nowrap
 set noarabic
 "set spell
-set backup
-set undofile
+"set backup
+"set undofile
 set showmode
 scriptencoding utf-8
 set wildmenu
@@ -29,9 +29,9 @@ set wildmode=list:longest,full
 "
 "FIXME
 "if [[ -d /var/tmp/{vimbackup,vimswap,vimviews} ]]
-"	set backupdir=/var/tmp/vimbackup//
-"	set directory=/var/tmp/vimswap//
-"	set viewdir=/var/tmp/vimviews//
+"	set backupdir=/var/tmp/vimbackup/
+"	set directory=/var/tmp/vimswap/
+"	set viewdir=/var/tmp/vimviews/
 "else
 "	mkdir -p /var/tmp/{vimbackup,vimswap,vimviews}
 "	source ~/.vimrc
