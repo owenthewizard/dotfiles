@@ -19,6 +19,7 @@ else
 	source ~/.visual
 fi
 export EDITOR="$VISUAL"
+export SYSTEMD_EDITOR="$VISUAL"
 
 ## CUSTOM ALIASES
 # A place for user-defined aliases that should not be shipped by default
@@ -172,6 +173,12 @@ shopt -s checkwinsize
 # Prompt				#
 #########################
 
+# Fix xfce4-terminal to support 256 colors
+#FIXME
+#if [[ $(ps -o comm= -p "$(($(ps -o ppid= -p "$(($(ps -o sid= -p "$$")))")))" == "xfce4-terminal" ]]; then
+#	TERM=xterm-256color
+#fi
+#
 if [[ "$TERM" == "xterm-256color" ]] || [[ $(tput colors) -eq 256 ]]; then # Nicer 256 colour prompt
 	if [[ "$EUID" -eq 0 ]]; then
 		PS1="\[$(tput sgr0)\][\[\033[38;5;1m\]\u\\[$(tput sgr0)\]@\h \[\033[38;5;4m\]\w\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
@@ -186,4 +193,5 @@ else # Uglier 8 colour prompt
 	fi
 fi
 
-# vim: set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+
+#vim: set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
