@@ -6,7 +6,7 @@ set background=dark
 filetype plugin indent on
 set t_Co=256
 set term=$TERM
-set mouse=a
+"set mouse=a
 syntax enable
 set number
 set ignorecase
