@@ -111,7 +111,7 @@ case "$OSTYPE" in
 	*)		_FALLBACK=true ;;
 esac
 
-if [[ "$_FALLBACK" = true ]]; then
+if [[ "$_FALLBACK" ]]; then
 	case "$(uname -s)" in
 		Linux*)		ls_color="--color=auto" ;;
 		Darwin*)	ls_color="-G" ;;
@@ -140,14 +140,14 @@ alias ports='netstat -tulanp'
 
 # Colorize grep and diff (requires colordiff)
 alias grep='grep --color=auto'
-if command -v colordiff > /dev/null 2>&1; then
+if command -v colordiff &> /dev/null; then
 	alias diff='colordiff'
 fi
 
 alias fgrep='grep -F'
 alias egrep='grep -E'
 
-if [[ "$_SUNOS" = true ]]; then
+if [[ "$_SUNOS" ]]; then
 	alias ls='/usr/gnu/bin/ls -p --color=auto'
 else
 	alias ls='ls ${ls_color} -p --quoting-style=escape'
@@ -192,6 +192,5 @@ else # Uglier 8 colour prompt
 		PS1="[\[\e[32m\]\u\[\e[m\]@\h \[\e[34m\]\w\[\e[m\]]\\$ "
 	fi
 fi
-
 
 #vim: set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
