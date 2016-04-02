@@ -2,7 +2,6 @@
 
 # Interactively install dotfiles
 
-
 dir="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 function chdir()    # Make sure we are in the directory with the dotfiles
 {

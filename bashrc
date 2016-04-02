@@ -84,16 +84,32 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 alias wget='wget -c'                        # Resume wget by default
 
+# Useful stuff
 alias ports='netstat -tulanp'               # See listening ports
 
 # Colorize grep and diff (requires colordiff)
 alias grep='grep --color=auto'
+
 if command -v colordiff &> /dev/null; then
     alias diff='colordiff'
 fi
 
 alias fgrep='grep -F'
 alias egrep='grep -E'
+
+# Colorize other stuff
+if command -v grc &> /dev/null; then
+    alias ping='grc ping'
+    alias gcc='grc gcc'
+    alias make='grc make'
+    alias last='grc last'
+    alias lastb='grc lastb'
+    alias mount='grc mount'
+    alias ps='grc ps'
+    alias ifconfig='grc ifconfig'
+    alias df='grc df'
+    alias du='grc du'
+fi
 
 if [[ ${_SUNOS} ]]; then
     alias ls='/usr/gnu/bin/ls -p --color=auto'
@@ -134,6 +150,6 @@ fi
 # [user@hostname ~/path/to/dir]$ 
 
 #FIXME PS1="[\[$(tput sgr0)\]\[\033[$userColor\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h \[$(tput sgr0)\]\[\033[38;5;4m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]]\`if [[ ${?} -ne 0 ]]; then echo -ne '\[\e[38;5;1m\]'; fi\`\\$\[$(tput sgr0)\] "
-PS1="[\[$(tput sgr0)\]\[\033[$userColor\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h \[$(tput sgr0)\]\[\033[38;5;4m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]]\\$\[$(tput sgr0)\] "
+PS1="\[$(tput sgr0)\]\[\033[38;5;7m\][\[\033[$userColor\]\u\[$(tput sgr0)\]\[\033[38;5;7m\]@\h \[$(tput sgr0)\]\[\033[38;5;4m\]\w\[$(tput sgr0)\]\[\033[38;5;7m\]]\\$\[$(tput sgr0)\] "
 
 #vim: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
