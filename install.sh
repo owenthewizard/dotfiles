@@ -1,26 +1,28 @@
 #!/bin/bash
 
-read -n 1 -p 'Do you wish to install/upgrade "~/.bashrc"? (y/N) ' bashyn 
-[[ -z "$bashyn" ]] && bashyn=n
-case "$bashyn" in
-	y|Y )	ln -sf $(pwd)/bashrc ~/.bashrc ;;	
-esac
+# Interactively install dotfiles
 
-echo
 
-read -n 1 -p 'Do you wish to install/upgrade "~/.nanorc"? (y/N) ' nanoyn
-[[ -z "$nanoyn" ]] && nanoyn=n
-case "$nanoyn" in
-	y|Y )	ln -sf $(pwd)/nanorc ~/.nanorc ;;
-esac
+dir="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+function chdir()    # Make sure we are in the directory with the dotfiles
+{
+    cd ${dir}
+}
+chdir
 
-echo
+# Get list of files to install
+programs=$(ls -1 ./ \
+    | grep -E "*rc|Xresources" -)
 
-read -n 1 -p 'Do you wish to install/upgrade "~/.vimrc"? (y/N) ' vimyn
-[[ -z "$vimyn" ]] && vimyn=n
-case "$vimyn" in
-	y|Y ) ln -sf $(pwd)/vimrc ~/.vimrc ;;
-esac
-
-echo
-exit 0
+for i in $programs; do
+    printf '%s\n' "Do you wish to install ~/.${i}?"
+    select yn in "Yes" "No"; do
+        case ${yn} in
+            Yes )   ln -sf ${dir}/${i} ~/.${i};
+                    break
+                ;;
+            No  )   break
+                ;;
+        esac
+    done
+done
