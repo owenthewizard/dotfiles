@@ -21,7 +21,10 @@ mkvisual() # Creates a lock file after asking the user's prefered $VISUAL
 
 {
     touch ~/.visual
-    read -p 'Enter your preferred text editor ($VISUAL) in quotes. i.e. "nano", "gedit", "vim", "emacs"... ' _VISUAL
+    printf '%s\n' 'Enter your preferred text editor ($VISUAL) in quotes.'
+    printf '%s\n' 'Example: "nano", "gedit", "vim", "emacs"...'
+    printf '%s' "#? "
+    read _VISUAL
     printf '%s\n' "export VISUAL=${_VISUAL}" > ~/.visual
 }
 
