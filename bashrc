@@ -144,15 +144,15 @@ shopt -s checkwinsize
 
 # Red username for root
 if [[ $EUID -eq 0 ]]; then
-    userColor="38;5;1m"
+    userColor="38;5;9m"
 else
-    userColor="38;5;2m"
+    userColor="38;5;10m"
 fi
 
 # Red symbol if exit != 0
 # [user@hostname ~/path/to/dir]$ 
 
 #FIXME PS1="[\[$(tput sgr0)\]\[\033[$userColor\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h \[$(tput sgr0)\]\[\033[38;5;4m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]]\`if [[ ${?} -ne 0 ]]; then echo -ne '\[\e[38;5;1m\]'; fi\`\\$\[$(tput sgr0)\] "
-PS1="\[$(tput sgr0)\]\[\033[38;5;7m\][\[\033[$userColor\]\u\[$(tput sgr0)\]\[\033[38;5;7m\]@\h \[$(tput sgr0)\]\[\033[38;5;4m\]\w\[$(tput sgr0)\]\[\033[38;5;7m\]]\\$\[$(tput sgr0)\] "
+PS1="\[$(tput sgr0)\]\[\033[38;5;7m\][\[\033[$userColor\]\u\[$(tput sgr0)\]\[\033[38;5;7m\]@\h \[$(tput sgr0)\]\[\033[38;5;12m\]\w\[$(tput sgr0)\]\[\033[38;5;7m\]]\\$\[$(tput sgr0)\] "
 
 #vim: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
