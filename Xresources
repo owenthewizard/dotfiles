@@ -3,47 +3,47 @@
 ! Also with infinality font stuff
 
 ! Special
-*.foreground:   #e6e1dc
-*.background:   #2b2b2b
-*.cursorColor:  #e6e1dc
+*.foreground:   #c5c8c6
+*.background:   #1d1f21
+*.cursorColor:  #c5c8c6
 
 ! Black
-*.color0:       #2b2b2b
-*.color8:       #5a647e
+*.color0:       #282a2e
+*.color8:       #373b41
 
 ! Red
-*.color1:       #da4939
-*.color9:       #ff4f4f
+*.color1:       #a54242
+*.color9:       #cc6666
 
 ! Green
-*.color2:       #a5c261
-*.color10:      #9be89b
+*.color2:       #8c9440
+*.color10:      #b5bd68
 
 ! Yellow
-*.color3:       #ffc66d
-*.color11:      #ffae52
+*.color3:       #de935f
+*.color11:      #f0c674
 
 ! Blue
-*.color4:       #6d9cbe
-*.color12:      #95c7e6
+*.color4:       #5f819d
+*.color12:      #81a2be
 
 ! Magenta
-*.color5:       #b6b3eb
-*.color13:      #dbdbff
+*.color5:       #85678f
+*.color13:      #b294bb
 
 ! Cyan
-*.color6:       #519f50
-*.color14:      #78c478
+*.color6:       #5e8d87
+*.color14:      #8abeb7
 
 ! White
-*.color7:       #e6e1dc
-*.color15:      #f9f7f3
+*.color7:       #707880
+*.color15:      #c5c8c6
 
 ! Infinality Font Stuff
-Xft.autohint: 0
-Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.dpi: 96
-Xft.rgba: rgb
+Xft.antialias:  1
+Xft.autohint:   0
+Xft.dpi:        96
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting:    1
+Xft.rgba:       rgb

@@ -149,10 +149,9 @@ else
     userColor="38;5;10m"
 fi
 
-# Red symbol if exit != 0
-# [user@hostname ~/path/to/dir]$ 
+dirColor="38;5;12m"
 
-#FIXME PS1="[\[$(tput sgr0)\]\[\033[$userColor\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h \[$(tput sgr0)\]\[\033[38;5;4m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]]\`if [[ ${?} -ne 0 ]]; then echo -ne '\[\e[38;5;1m\]'; fi\`\\$\[$(tput sgr0)\] "
-PS1="\[$(tput sgr0)\]\[\033[38;5;7m\][\[\033[$userColor\]\u\[$(tput sgr0)\]\[\033[38;5;7m\]@\h \[$(tput sgr0)\]\[\033[38;5;12m\]\w\[$(tput sgr0)\]\[\033[38;5;7m\]]\\$\[$(tput sgr0)\] "
+# [user@hostname ~/path/to/dir]$  
+PS1="\[$(tput sgr0)\][\[\033[$userColor\]\u\[$(tput sgr0)\]@\h \[\033[$dirColor\]\w\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
 
 #vim: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
