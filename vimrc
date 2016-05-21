@@ -10,7 +10,13 @@
 " Visual/Style Settings "
 """""""""""""""""""""""""
 set background=dark
-set t_Co=256                    " Set terminal to 256-color
+
+if $TERM == "xterm-256color"
+    set t_Co=256
+else
+    set t_Co=8
+endif
+
 set term=$TERM
 syntax enable                   " Enable syntax highlighting
 set number                      " Show line numbers
