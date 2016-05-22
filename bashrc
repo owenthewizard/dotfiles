@@ -18,7 +18,6 @@
 #######################
 
 mkvisual() # Creates a lock file after asking the user's prefered $VISUAL
-
 {
     touch ~/.visual
     printf '%s\n' 'Enter your preferred text editor ($VISUAL).'
@@ -27,6 +26,26 @@ mkvisual() # Creates a lock file after asking the user's prefered $VISUAL
     read _VISUAL
     printf '%s\n' "export VISUAL=${_VISUAL}" > ~/.visual
 }
+
+# Colors
+# To use more than 16 colors define them in your terminal or ~/.Xresources
+reset="\[\033[0m\]"
+black="\[\033[38;5;0m\]"
+red="\[\033[38;5;1m\]"
+green="\[\033[38;5;2m\]"
+yellow="\[\033[38;5;3m\]"
+blue="\[\033[38;5;4m\]"
+magenta="\[\033[38;5;5m\]"
+cyan="\[\033[38;5;6m\]"
+white="\[\033[38;5;7m\]"
+brightBlack="\[\033[38;5;8m\]"
+brightRed="\[\033[38;5;9m\]"
+brightGreen="\[\033[38;5;10m\]"
+brightYellow="\[\033[38;5;11m\]"
+brightBlue="\[\033[38;5;12m\]"
+brightMagenta="\[\033[38;5;13m\]"
+brightCyan="\[\033[38;5;14m\]"
+brightWhite="\[\033[38;5;15m\]"
 
 #########################
 # Text Editor ($VISUAL) #
@@ -141,17 +160,18 @@ shopt -s checkwinsize
 # Prompt                #
 #########################
 
+# Color Options
+# Set to reset for none/default
+userColor=$brightGreen
+dirColor=$brightBlue
+hostColor=$reset
+otherColor=$reset   # Color for extras, like brackets
+symbolColor=$reset  # This will turn bright red on error
 
 # Red username for root
-if [[ $EUID -eq 0 ]]; then
-    userColor="38;5;9m"
-else
-    userColor="38;5;10m"
-fi
-
-dirColor="38;5;12m"
+[[ $EUID -eq 0 ]] && userColor=$brightRed
 
 # [user@hostname ~/path/to/dir]$  
-PS1="\[$(tput sgr0)\][\[\033[$userColor\]\u\[$(tput sgr0)\]@\h \[\033[$dirColor\]\w\[$(tput sgr0)\]]\\$ \[$(tput sgr0)\]"
+PS1="$reset$otherColor[$userColor\u$otherColor@$hostColor\h$dirColor \w$otherColor]$symbolColor\\$ $reset"
 
 #vim: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
