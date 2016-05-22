@@ -74,11 +74,18 @@ fi
 # OS Support #
 ##############
 case ${OSTYPE} in
-    linux*)     ls_color="--color=auto" ;;
-    darwin*)    ls_color="-G" ;;
-    bsd*)       ls_color="-G" ;;
-    solaris*)   _SUNOS=true ;;
-    *)      _FALLBACK=true ;;
+    linux*)     ls_color="--color=auto"
+                preserve_root="--preserve-root"
+                quoting_style="--quoting-style=escape"
+                ;;
+    darwin*)    ls_color="-G"
+                ;;
+    bsd*)       ls_color="-G"
+                ;;
+    solaris*)   _SUNOS=true
+                ;;
+    *)          _FALLBACK=true
+                ;;
 esac
 
 if [[ ${_FALLBACK} ]]; then
@@ -99,11 +106,11 @@ alias sudo='sudo '                          # Fix sudo to work with aliases
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
-alias del='rm -i --preserve-root'
+alias del='rm -i ${preserve_root}'
 alias ln='ln -i'
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
+alias chown='chown ${preserve_root}'
+alias chmod='chmod ${preserve_root}'
+alias chgrp='chgrp ${preserve_root}'
 alias wget='wget -c'                        # Resume wget by default
 
 # Useful stuff
@@ -136,7 +143,7 @@ fi
 if [[ ${_SUNOS} ]]; then
     alias ls='/usr/gnu/bin/ls -p --color=auto'
 else
-    alias ls='ls ${ls_color} -p --quoting-style=escape'
+    alias ls='ls ${ls_color} -p ${quoting_style}'
 fi
 
 alias ll='ls -lh'
