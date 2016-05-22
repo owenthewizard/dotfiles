@@ -1,8 +1,8 @@
 # ~/.bashrc - initialize bash prompt
 # Written in 2016 by owenthewizard b9a6135e <at> opayq <dot> com
 # Some of this code is written by other authors:
-#   joeledwards on GitHub   (no liscense specified) https://github.com/joeledwards/bashrc/blob/master/bashrc
-#   brakertech.com          (no liscense specified) http://brakertech.com/one-liners/bashrbashrc-tweaks-for-rhel-or-centos/
+#   joeledwards on GitHub   (no license specified) https://github.com/joeledwards/bashrc/blob/master/bashrc
+#   brakertech.com          (no license specified) http://brakertech.com/one-liners/bashrbashrc-tweaks-for-rhel-or-centos/
 #   
 
 # NOT ALL OF THIS CODE IS MINE
@@ -11,7 +11,7 @@
 # Updated to follow the Bash Hackers Wiki "Scripting with Style" guide
 # (http://wiki.bash-hackers.org/scripting/style)
 
-[[ $- != *i* ]] && return                   # Abort if we aren't interactive
+[[ $- != *i* ]] && return   # Abort if we aren't interactive
 
 #######################
 # Functions/Variables #
