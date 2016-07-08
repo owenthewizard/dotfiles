@@ -10,8 +10,8 @@ function chdir()    # Make sure we are in the directory with the dotfiles
 chdir
 
 # Get list of files to install
-programs=$(ls -1 ./ \
-    | grep -E "*rc|Xresources" -)
+programs=*rc
+programs+=" Xresources"
 
 for i in $programs; do
     printf '%s\n' "Do you wish to install ~/.${i}?"
