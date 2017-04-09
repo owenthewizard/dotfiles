@@ -1,33 +1,33 @@
 set nocompatible
-set ttyfast
-set background=dark
-set term=$TERM
-set backspace=indent,eol,start
 set autochdir
-set showmode
+set background=dark
+set backspace=indent,eol,start
+set confirm
+set ignorecase
+set incsearch
+set noarabic
+set nohlsearch
+set nostartofline
 set showcmd
 set showmatch
-set incsearch
-set ignorecase
+set showmode
 set smartcase
-set nostartofline
-set noarabic
-set confirm
-set nohlsearch
+set term=$TERM
+set ttyfast
 
+set autoindent
+set expandtab
+set shiftround
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
+set pastetoggle=<F3>
+
+syntax on
 " Use Xresources colors
 colo default
 set t_Co=16
-
-syntax on
-set autoindent
-set shiftwidth=4
-set shiftround
-set expandtab
-set tabstop=4
-set softtabstop=4
-
-set pastetoggle=<F3>
 
 filetype plugin indent on
 scriptencoding utf-8
