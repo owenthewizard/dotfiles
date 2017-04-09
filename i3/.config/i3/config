@@ -50,11 +50,11 @@ bindsym $mod+space focus mode_toggle
 #bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
-set $ws1 "Web"
-set $ws2 "Terminals"
-set $ws3 "Work"
-set $ws4 "Music"
-set $ws5 "Game"
+set $ws1 "1 Web"
+set $ws2 "2 Terminals"
+set $ws3 "3 Work"
+set $ws4 "4 Music"
+set $ws5 "5 Game"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
