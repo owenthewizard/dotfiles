@@ -84,6 +84,8 @@ assign [class="^Steam$"] $ws5
 # this doesn't work, I'm bad at regular expressions
 #assign [title="cmus v\d*\.\d*\.\d*-\w*"] $ws4
 assign [title="^cmus"] $ws4
+assign [class="^MultiMC5$" instance="^MultiMC$"] $ws5
+assign [class="^Minecraft \d*\.\d*\.\d*$"] $ws5
 
 set_from_resource $fg foreground
 set_from_resource $bg background
