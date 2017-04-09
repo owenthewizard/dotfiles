@@ -51,9 +51,9 @@ endif
 "endif
 
 function! Paste_Status()
-  if ! &list && ! &ai
-      return "on"
+    if ! &list && ! &ai
+        return "on"
     else
-      return "off"
-    fi
+        return "off"
+    endif
 endfunction
