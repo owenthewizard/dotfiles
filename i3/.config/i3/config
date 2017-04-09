@@ -159,12 +159,12 @@ bindsym XF86AudioPlay exec "playerctl play; cmus-remote -u"
 bindsym XF86AudioNext exec "playerctl next; cmus-remote -n"
 bindsym XF86AudioPrev exec "playerctl previous; cmus-remote -r"
 
-exec_always --no-startup-id xrdb -load ~/.Xresources
-exec_always --no-startup-id feh --bg-center ~/Pictures/Wallpapers/Bokeh.png
+exec_always --no-startup-id "xrdb -load ~/.Xresources"
+exec_always --no-startup-id "feh --bg-center ~/Pictures/Wallpapers/Bokeh.png"
 exec --no-startup-id "redshift-gtk -l \"$(cat ~/.config/i3/location)\" -t 5500:2700"
 exec --no-startup-id "urxvtd -q -f -o"
-exec --no-startup-id compton -b
-exec --no-startup-id steam
-exec --no-startup-id xautolock -time 10 -locker 'i3lock-next "Open Sans" 24'
-exec chromium-browser
-exec urxvtc -e cmus
+exec --no-startup-id "compton -b"
+exec --no-startup-id "steam"
+exec --no-startup-id "xautolock -time 10 -locker 'i3lock-next \"Open Sans\" 24'"
+exec "chromium-browser"
+exec "urxvtc -e cmus"
