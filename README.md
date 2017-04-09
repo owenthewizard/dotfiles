@@ -1,4 +1,13 @@
 # dotfiles
-My configuration files such as `~/.bashrc`.  
-To install, run `install.sh`.  
-You will be asked what text editor (`$VISUAL`) you prefer the first time you source the new bashrc.
+
+My configuration files.
+
+# Install
+
+I reccomend installing like so:
+```
+cd ~
+git clone https://github.com/owenthewizard/dotfiles.git .dotfiles
+cd .dotfiles
+stow bash X vim # dotfiles you want to enable
+```
