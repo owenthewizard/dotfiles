@@ -20,13 +20,13 @@ esac
 alias sudo='sudo '
 alias cp='cp -i'
 alias mv='mv -i'
-alias rm='rm ${preserve_root}'
+alias rm="rm ${preserve_root}"
 alias mkdir='mkdir -p'
-alias del='rm -i ${preserve_root}'
+alias del="rm -i ${preserve_root}"
 alias ln='ln -i'
-alias chown='chown ${preserve_root}'
-alias chmod='chmod ${preserve_root}'
-alias chgrp='chgrp ${preserve_root}'
+alias chown="chown ${preserve_root}"
+alias chmod="chmod ${preserve_root}"
+alias chgrp="chgrp ${preserve_root}"
 alias wget='wget -c'
 alias grep='grep --color=auto'
 alias fgrep='grep -F'
