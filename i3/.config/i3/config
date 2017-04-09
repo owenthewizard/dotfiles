@@ -78,8 +78,8 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-assign [class="^Chromium-browser-chromium$"] $ws1
-assign [class="^Firefox$"] $ws1
+assign [class="^Chromium-browser-chromium$" instance="^chromium-browser-chromium$"] $ws1
+assign [class="^Firefox$" instance="^Navigator$"] $ws1
 assign [class="^Steam$"] $ws5
 # this doesn't work, I'm bad at regular expressions
 #assign [title="cmus v\d*\.\d*\.\d*-\w*"] $ws4
