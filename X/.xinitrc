@@ -10,6 +10,7 @@ if [[ -d /etc/X11/xinit/xinitrc.d ]]; then
     unset f
 fi
 
+numlockx
 urxvtd -q -f -o
 feh --no-fehbg --image-bg black --bg-center "${HOME}"/Pictures/.wallpaper.png
 xautolock -time 10 -locker 'i3lock-next "Open Sans" 24' &
