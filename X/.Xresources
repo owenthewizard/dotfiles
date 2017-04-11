@@ -33,6 +33,9 @@ URxvt*depth: 32
 !URxvt*background: [80]#1d1f21
 URxvt*background: [80]#000000
 
+URxvt.urgentOnBell: true
+!URxvt.internalBorder: 10
+
 ! Colors and such
 *.foreground:   #c5c8c6
 *.background:   #1d1f21
