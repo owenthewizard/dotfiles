@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 
 [[ -f /etc/X11/xinit/Xresources ]] && xrdb -load /etc/X11/xinit/Xresources
 [[ -f "${HOME}"/.Xresources ]] && xrdb -merge "${HOME}"/.Xresources
