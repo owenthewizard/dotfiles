@@ -5,6 +5,8 @@ set backspace=indent,eol,start
 set confirm
 set ignorecase
 set incsearch
+set modeline
+set modelines=1
 set noarabic
 set nohlsearch
 set nostartofline
