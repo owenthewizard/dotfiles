@@ -153,7 +153,7 @@ for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
 
-bindsym $mod+shift+x exec i3lock-next "Open Sans" 24
+bindsym $mod+shift+x exec i3lock-next "Type password to unlock" "Open Sans" 24
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 1 +5%"
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 1 -5%"
 bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 1 toggle"
