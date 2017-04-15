@@ -13,7 +13,7 @@ fi
 numlockx
 urxvtd -q -f -o
 feh --no-fehbg --image-bg black --bg-center "${HOME}"/Pictures/.wallpaper.png
-xautolock -time 10 -locker 'i3lock-next "Open Sans" 24' &
+xautolock -time 10 -locker 'i3lock-next "Type password to unlock" "Open Sans" 24' &
 redshift-gtk &
 #compton -b
 exec i3
