@@ -17,6 +17,7 @@ gaps outer 10
 
 no_focus [window_role="pop-up"]
 no_focus [title="title=^Steam - Self Updater$"]
+no_focus [title="^Steam$"]
 
 floating_modifier $mod
 
@@ -86,7 +87,9 @@ assign [class="^Steam$"] $ws5
 assign [title="^cmus"] $ws4
 assign [class="^MultiMC5$" instance="^MultiMC$"] $ws5
 assign [class="^Minecraft \d*\.\d*\.\d*$"] $ws5
-assign [name="^Steam$"] $ws5 # annoying "steam is starting" popup
+assign [title="^Steam$"] $ws5 # Annoying Steam popup
+assign [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XFramePeer$"] $ws5
+assign [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XDialogPeer$"] $ws5
 
 set_from_resource $fg foreground
 set_from_resource $bg background
@@ -153,6 +156,8 @@ for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
 for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
+for_window [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XFramePeer$"] floating enable
+for_window [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XDialogPeer$"] floating enable
 
 bindsym $mod+shift+x exec i3lock-next "Type password to unlock" "Open Sans" 24
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 1 +5%"
