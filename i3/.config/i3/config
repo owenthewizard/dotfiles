@@ -86,6 +86,7 @@ assign [class="^Steam$"] $ws5
 assign [title="^cmus"] $ws4
 assign [class="^MultiMC5$" instance="^MultiMC$"] $ws5
 assign [class="^Minecraft \d*\.\d*\.\d*$"] $ws5
+assign [name="^Steam$"] $ws5 # annoying "steam is starting" popup
 
 set_from_resource $fg foreground
 set_from_resource $bg background
