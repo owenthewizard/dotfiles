@@ -90,6 +90,8 @@ assign [class="^Minecraft \d*\.\d*\.\d*$"] $ws5
 assign [title="^Steam$"] $ws5 # Annoying Steam popup
 assign [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XFramePeer$"] $ws5
 assign [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XDialogPeer$"] $ws5
+assign [title="^.*PlayOnLinux.*$"] $ws5
+assign [title="^.*[wW]ine.*$"] $ws5
 
 set_from_resource $fg foreground
 set_from_resource $bg background
@@ -158,6 +160,7 @@ for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Require
 for_window [title="^Steam Keyboard$"] floating enable
 for_window [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XFramePeer$"] floating enable
 for_window [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XDialogPeer$"] floating enable
+#for_window [title="^.*PlayOnLinux.*$"] floating enable
 
 bindsym $mod+shift+x exec i3lock-next "Type password to unlock" "Open Sans" 24
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 1 +5%"
