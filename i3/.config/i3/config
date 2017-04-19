@@ -137,6 +137,11 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+bindsym $mod+Shift+g mode "gaming"
+mode "gaming" {
+    bindsym $mod+Shift+g mode "default"
+}
+
 bindsym $mod+r mode "resize"
 
 #TODO: polybar
