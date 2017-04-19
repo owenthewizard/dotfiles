@@ -112,10 +112,10 @@ set_from_resource $icyan color14
 set_from_resource $white color7
 set_from_resource $iwhite color15
 
-client.focused $iwhite $black $fg $bg $iwhite
-client.unfocused $iwhite $bg $white #ff00ff $iwhite
-client.unfocused_inactive $iwhite $bg $white #ff00ff $iwhite
-client.urgent $red $ired $fg $black
+#client.focused $iwhite $bg $white $bg $iwhite
+#client.unfocused $iwhite $bg $fg #ff00ff $iwhite
+#client.unfocused_inactive $iwhite $bg $white #ff00ff $iwhite
+#client.urgent $red $ired $fg $black
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
