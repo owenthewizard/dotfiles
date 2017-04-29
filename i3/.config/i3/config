@@ -168,7 +168,7 @@ for_window [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XFramePeer$"] flo
 for_window [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XDialogPeer$"] floating enable
 #for_window [title="^.*PlayOnLinux.*$"] floating enable
 for_window [class="^explorer.exe$" instance="^explorer.exe$"] floating enable
-for_window [class="SaintsRow3.i386" instance="SaintsRow3.i386"] fullscreen enable
+for_window [class="SaintsRow3.i386" instance="SaintsRow3.i386"] fullscreen
 for_window [class="^Steam$" title="^Steam Library Folders$"] floating enable
 
 bindsym $mod+shift+x exec i3lock-next "Type password to unlock" "Open Sans" 24
