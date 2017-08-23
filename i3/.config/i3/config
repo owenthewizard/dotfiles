@@ -56,6 +56,7 @@ set $ws2 "2 Terminals"
 set $ws3 "3 Work"
 set $ws4 "4 Music"
 set $ws5 "5 Game"
+set $ws10 "10 Kodi"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -66,7 +67,19 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace $ws10
+
+workspace $ws1 output DVI-D-0
+workspace $ws2 output DVI-D-0
+workspace $ws3 output DVI-D-0
+workspace $ws4 output DVI-D-0
+workspace $ws5 output DVI-D-0
+workspace 6 output DVI-D-0
+workspace 7 output DVI-D-0
+workspace 8 output DVI-D-0
+workspace 9 output DVI-D-0
+
+workspace $ws10 output HDMI-A-1
 
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -77,7 +90,7 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 assign [class="^Chromium-browser-chromium$" instance="^chromium-browser-chromium$"] $ws1
 assign [class="^Firefox$" instance="^Navigator$"] $ws1
@@ -93,6 +106,7 @@ assign [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XDialogPeer$"] $ws5
 assign [title="^.*PlayOnLinux.*$"] $ws5
 assign [title="^.*[wW]ine.*$"] $ws5
 assign [title="^Terminal$"] $ws2
+assign [class="^Kodi$" instance="^Kodi$"] $ws10
 
 set_from_resource $fg foreground
 set_from_resource $bg background
@@ -148,10 +162,12 @@ bindsym $mod+r mode "resize"
 #TODO: polybar
 bar {
         status_command i3blocks
+        tray_output primary
 }
 
 #for_window [class="Steam" instance="Steam"] floating enable
 for_window [class="^MultiMC5$" instance="^MultiMC$"] floating enable
+for_window [class="^MultiMC5$" instance="^MultiMC$" title="Console window for .* — MultiMC 5"] floating disable
 for_window [class="^Minecraft \d*\.\d*\.\d*$"] floating enable
 # Thanks to BurningSmile - https://github.com/BurningSmile/
 for_window [class="^Steam$" title="^Friends$"] floating enable
@@ -163,6 +179,7 @@ for_window [class="^Steam$" title=".* CD key"] floating enable
 for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
 for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [class="^Steam$" title="^Create or select new Steam library folder:$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
 for_window [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XFramePeer$"] floating enable
 for_window [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XDialogPeer$"] floating enable
@@ -170,6 +187,7 @@ for_window [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XDialogPeer$"] fl
 for_window [class="^explorer.exe$" instance="^explorer.exe$"] floating enable
 for_window [class="SaintsRow3.i386" instance="SaintsRow3.i386"] fullscreen
 for_window [class="^Steam$" title="^Steam Library Folders$"] floating enable
+for_window [class="^Mainwindow.py$" instance="^mainwindow.py$"] floating enable
 
 bindsym $mod+shift+x exec i3lock-next "Type password to unlock" "Open Sans" 24
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 1 +5%"
@@ -184,3 +202,4 @@ exec "steam"
 exec "urxvtc -e cmus"
 exec --no-startup-id "compton -b"
 exec "urxvtc -title Terminal"
+#exec "kodi"

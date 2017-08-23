@@ -10,9 +10,10 @@ if [[ -d /etc/X11/xinit/xinitrc.d ]]; then
     unset f
 fi
 
+xrandr --output HDMI-A-1 --off
 numlockx
 urxvtd -q -f -o
-feh --no-fehbg --image-bg black --bg-center "${HOME}"/Pictures/.wallpaper.png
+feh --no-fehbg --image-bg black --bg-center "${HOME}"/Pictures/.wallpaper.png --xinerama-index 0
 xautolock -time 10 -locker 'i3lock-next "Type password to unlock" "Open Sans" 24' &
 redshift-gtk &
 #compton -b
