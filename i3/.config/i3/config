@@ -4,7 +4,7 @@
 set $mod Mod1
 
 #font pango:DejaVu Sans Mono 12
-font pango:Open Sans 12
+font pango:Open Sans 12, FontAwesome 12
 
 # No tiled window borders
 new_window none
@@ -51,11 +51,11 @@ bindsym $mod+space focus mode_toggle
 #bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
-set $ws1 "1 Web"
-set $ws2 "2 Terminals"
-set $ws3 "3 Work"
-set $ws4 "4 Music"
-set $ws5 "5 Game"
+set $ws1 ""
+set $ws2 ""
+set $ws3 ""
+set $ws4 ""
+set $ws5 ""
 set $ws10 "10 Kodi"
 
 bindsym $mod+1 workspace $ws1
@@ -159,7 +159,6 @@ mode "gaming" {
 
 bindsym $mod+r mode "resize"
 
-#TODO: polybar
 bar {
         status_command i3blocks
         tray_output primary
@@ -197,9 +196,9 @@ bindsym XF86AudioPlay exec "playerctl play; cmus-remote -u"
 bindsym XF86AudioNext exec "playerctl next; cmus-remote -n"
 bindsym XF86AudioPrev exec "playerctl previous; cmus-remote -r"
 
-exec "chromium-browser"
-exec "steam"
-exec "urxvtc -e cmus"
 exec --no-startup-id "compton -b"
+exec "chromium-browser"
 exec "urxvtc -title Terminal"
+exec "urxvtc -e cmus"
+exec "steam"
 #exec "kodi"
