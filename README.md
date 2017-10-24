@@ -4,8 +4,8 @@ My configuration files.
 
 # Install
 
-I reccomend installing like so:
-```
+I recommend installing like so:
+```bash
 cd ~
 git clone https://github.com/owenthewizard/dotfiles.git .dotfiles
 cd .dotfiles
