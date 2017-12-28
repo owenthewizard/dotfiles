@@ -10,7 +10,8 @@ if [[ -d /etc/X11/xinit/xinitrc.d ]]; then
     unset f
 fi
 
-xrandr --output HDMI-A-1 --off
+#xrandr --output HDMI-A-1 --off
+(xrandr | grep -F "HDMI-1 connected" &> /dev/null) && xrandr --output HDMI-1 --set "Broadcast RGB" "Full"
 numlockx
 urxvtd -q -f -o
 feh --no-fehbg --image-bg black --bg-center "${HOME}"/Pictures/.wallpaper.png --xinerama-index 0
