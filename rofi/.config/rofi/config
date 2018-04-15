@@ -1,0 +1,14 @@
+rofi.color-enabled:     true
+!                       'background', 'border'
+rofi.color-window:      argb:cc1d1f21, argb:00000000
+! State:                'bg',          'fg',   'bgalt',       'hlbg',        'hlfg'
+rofi.color-normal:      argb:00333333, #898c8a, argb:00333333, argb:00333333, #c5c8c6
+rofi.color-urgent:      argb:00333333, #898c8a, argb:00333333, argb:00333333, #c5c8c6
+rofi.color-active:      argb:00333333, #898c8a, argb:00333333, argb:00333333, #c5c8c6
+rofi.separator-style:   dash
+rofi.fullscreen:        true
+rofi.padding:           256
+rofi.hide-scrollbar:    true
+rofi.line-margin:       5
+rofi.fake-transparency: false
+rofi.font:              Open Sans 36
