@@ -65,8 +65,18 @@ shopt -s histappend
 shopt -s checkwinsize
 
 if [[ "${TERM}" == "rxvt-unicode-256color" ]]; then
-        export TERMINAL=urxvtc
+        export TERMINAL="urxvtc"
         echo -en "\033[3 q"
 fi
+
+function mkcd()
+{
+    while [[ $# > 1 ]]; do
+        mkdir -p "${1}"
+        shift
+    done
+    mkdir -p "${1}"
+    cd "${1}"
+}
 
 #vim: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab

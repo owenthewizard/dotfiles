@@ -59,3 +59,6 @@ function! Paste_Status()
         return "off"
     endif
 endfunction
+
+autocmd FileType c setlocal colorcolumn=80
+autocmd FileType cpp setlocal colorcolumn=80

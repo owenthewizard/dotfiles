@@ -11,11 +11,13 @@ if [[ -d /etc/X11/xinit/xinitrc.d ]]; then
 fi
 
 #xrandr --output HDMI-A-1 --off
-(xrandr | grep -F "HDMI-1 connected" &> /dev/null) && xrandr --output HDMI-1 --set "Broadcast RGB" "Full"
+xrandr --output DVI-D-0 --primary
+#xrandr --output HDMI-A-1 --noprimary
+#(xrandr | grep -F "HDMI-1 connected" &> /dev/null) && xrandr --output HDMI-1 --set "Broadcast RGB" "Full"
 numlockx
 urxvtd -q -f -o
 feh --no-fehbg --image-bg black --bg-center "${HOME}"/Pictures/.wallpaper.png --xinerama-index 0
-xautolock -time 10 -locker 'i3lock-next "Type password to unlock" "Open Sans" 24' &
-redshift-gtk &
-#compton -b
+xautolock -time 10 -locker 'i3lock-next -w "Type password to unlock..." -f "Open Sans" -s 24 -- -e' &
+#redshift-gtk &
+compton &
 exec i3
