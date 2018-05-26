@@ -3,3 +3,4 @@
 [ ] rofi
 [ ] compton
 [ ] vim
+[ ] (t)csh
