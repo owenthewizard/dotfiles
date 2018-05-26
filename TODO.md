@@ -1,0 +1,5 @@
+# TODO
+
+[ ] rofi
+[ ] compton
+[ ] vim

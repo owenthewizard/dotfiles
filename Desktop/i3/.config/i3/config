@@ -1,19 +1,20 @@
-# Do note that I use a patched version of i3-gaps that doesn't mark windows in invisible workspaces as urgent.
-# https://gist.github.com/owenthewizard/56b0a522732bbf5428461602d0f447ff
-
+# Alt
 set $mod Mod1
 
-#font pango:DejaVu Sans Mono 12
 font pango:Open Sans 12, FontAwesome 12
 
-# No tiled window borders
+# for gaps
 new_window none
 hide_edge_borders both
 
-# No gaps with only one window in a container
+workspace_auto_back_and_forth yes
+
 smart_gaps on
 gaps inner 25
 gaps outer 10
+
+# required for gaps
+for_window [class="\s\S"] border pixel 0
 
 no_focus [window_role="pop-up"]
 no_focus [title="title=^Steam - Self Updater$"]
@@ -21,21 +22,13 @@ no_focus [title="^Steam$"]
 
 floating_modifier $mod
 
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show run -bw 0 -lines 4
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -43,20 +36,21 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+h split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 #bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
-set $ws1 ""
-set $ws2 ""
-set $ws3 ""
-set $ws4 ""
-set $ws5 ""
-set $ws10 "10 Kodi"
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+#set $ws6 "6:"
+#set $ws10 "10:Kodi"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -67,19 +61,19 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+0 workspace 10
 
-workspace $ws1 output DVI-D-0
-workspace $ws2 output DVI-D-0
-workspace $ws3 output DVI-D-0
-workspace $ws4 output DVI-D-0
-workspace $ws5 output DVI-D-0
-workspace 6 output DVI-D-0
-workspace 7 output DVI-D-0
-workspace 8 output DVI-D-0
-workspace 9 output DVI-D-0
+#workspace $ws1 output DVI-D-0
+#workspace $ws2 output DVI-D-0
+#workspace $ws3 output DVI-D-0
+#workspace $ws4 output DVI-D-0
+#workspace $ws5 output DVI-D-0
+#workspace 6 output DVI-D-0
+#workspace 7 output DVI-D-0
+#workspace 8 output DVI-D-0
+#workspace 9 output DVI-D-0
 
-workspace $ws10 output HDMI-A-1
+#workspace $ws10 output HDMI-A-1
 
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -90,23 +84,25 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+0 move container to workspace 10
 
 assign [class="^Chromium-browser-chromium$" instance="^chromium-browser-chromium$"] $ws1
 assign [class="^Firefox$" instance="^Navigator$"] $ws1
 assign [class="^Steam$"] $ws5
 # this doesn't work, I'm bad at regular expressions
 #assign [title="cmus v\d*\.\d*\.\d*-\w*"] $ws4
-assign [title="^cmus"] $ws4
+#assign [title="^cmus"] $ws4
 assign [class="^MultiMC5$" instance="^MultiMC$"] $ws5
 assign [class="^Minecraft \d*\.\d*\.\d*$"] $ws5
 assign [title="^Steam$"] $ws5 # Annoying Steam popup
 assign [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XFramePeer$"] $ws5
 assign [class="^net-ftb-main-Main$" instance="^sun-awt-X11-XDialogPeer$"] $ws5
+assign [class="^discord$" instance="^discord$"] $ws4
 assign [title="^.*PlayOnLinux.*$"] $ws5
-assign [title="^.*[wW]ine.*$"] $ws5
-assign [title="^Terminal$"] $ws2
-assign [class="^Kodi$" instance="^Kodi$"] $ws10
+#assign [title="^.*[wW]ine.*$"] $ws5
+#assign [title="^Terminal$"] $ws2
+#assign [class="^Kodi$" instance="^Kodi$"] $ws10
+#assign [class="^looking-glass-client$" instance="^looking-glass-client$"] $ws6
 
 set_from_resource $fg foreground
 set_from_resource $bg background
@@ -159,6 +155,13 @@ mode "gaming" {
 
 bindsym $mod+r mode "resize"
 
+# obsoleted by polybar
+#bar {
+#        status_command i3blocks
+#        tray_output primary
+#        strip_workspace_numbers yes
+#}
+
 #for_window [class="Steam" instance="Steam"] floating enable
 for_window [class="^MultiMC5$" instance="^MultiMC$"] floating enable
 for_window [class="^MultiMC5$" instance="^MultiMC$" title="Console window for .* — MultiMC 5"] floating disable
@@ -182,19 +185,18 @@ for_window [class="^explorer.exe$" instance="^explorer.exe$"] floating enable
 for_window [class="SaintsRow3.i386" instance="SaintsRow3.i386"] fullscreen
 for_window [class="^Steam$" title="^Steam Library Folders$"] floating enable
 for_window [class="^Mainwindow.py$" instance="^mainwindow.py$"] floating enable
+for_window [class="^OpenCV*"] floating enable
+for_window [title="^Tomb Raider Options$"] fullscreen
 
-bindsym $mod+shift+x exec i3lock-next "Type password to unlock" "Open Sans" 24
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 1 +5%"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 1 -5%"
-bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 1 toggle"
-bindsym XF86AudioPlay exec "playerctl play; cmus-remote -u"
-bindsym XF86AudioNext exec "playerctl next; cmus-remote -n"
-bindsym XF86AudioPrev exec "playerctl previous; cmus-remote -r"
+bindsym $mod+shift+x exec i3lock-next -w "Type password to unlock..." -f "Open Sans" -s 24 -- -e
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5%"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle"
+#bindsym XF86AudioPlay exec "playerctl play; cmus-remote -u"
+#bindsym XF86AudioNext exec "playerctl next; cmus-remote -n"
+#bindsym XF86AudioPrev exec "playerctl previous; cmus-remote -r"
 
-exec --no-startup-id "compton -b"
-exec "chromium-browser"
-exec "urxvtc -title Terminal"
-exec "urxvtc -e cmus"
-exec "steam"
-exec --no-startup-id "polybar default"
-#exec "kodi"
+exec --no-startup-id "polybar Desktop"
+exec --no-startup-id "firefox"
+#exec --no-startup-id "steam"
+exec --no-startup-id "discord"

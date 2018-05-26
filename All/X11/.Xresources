@@ -1,0 +1,76 @@
+*dpi: 96
+
+*font: xft:Open Sans:size=12
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+Xcursor.theme: Numix
+
+#define t_transparent #00000000
+#define t_black #142233
+#define t_grey #31547f
+
+#define t_red #bf4e4c
+#define t_bred #d85856
+
+#define t_green #7fa563
+#define t_bgreen #98bf7c
+
+#define t_yellow #eda95c
+#define t_byellow #f2d060
+
+#define t_blue  #6b94b2
+#define t_bblue  #8db6d3
+
+#define t_purple #75548c
+#define t_bpurple #9974b2
+
+#define t_cyan #2c7f78
+#define t_bcyan #33a097
+
+#define t_white #ccc6b7
+#define t_bwhite #e5dcc5
+
+#define t_background t_black
+#define t_background_a #cc142233
+#define t_foreground t_white
+
+*.foreground: t_foreground
+*.background: t_background
+*.cursorColor: t_foreground
+
+! Black / Grey
+*.color0: t_black
+*.color8: t_grey
+
+! Red / Bright Red
+*.color9: t_red
+*.color1: t_bred
+
+! Green + Bright Green
+*.color10: t_green
+*.color2: t_bgreen
+
+! Yellow (Orange) + Bright Yellow (Yellow)
+*.color11: t_yellow
+*.color3: t_byellow
+
+! Blue + Bright Blue
+*.color12: t_blue
+*.color4: t_bblue
+
+! Magenta (Purple) + Bright Magenta
+*.color13: t_purple
+*.color5: t_bpurple
+
+! Cyan (Aqua) + Bright Cyan
+*.color14: t_cyan
+*.color6: t_bcyan
+
+! Light Grey (Selection) + White (Current Line)
+*.color15: t_white
+*.color7: t_bwhite
