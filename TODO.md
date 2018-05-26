@@ -1,6 +1,6 @@
 # TODO
 
-[ ] rofi
-[ ] compton
-[ ] vim
-[ ] (t)csh
+- [ ] rofi
+- [ ] compton
+- [ ] vim
+- [ ] (t)csh
