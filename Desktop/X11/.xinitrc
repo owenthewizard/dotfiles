@@ -11,12 +11,12 @@ fi
 
 ( xrandr | grep -F -q "HDMI-1 connected" ) && xrandr --output HDMI-1 --set "Broadcast RGB" "Full"
 numlockx
-feh --no-fehbg --image-bg black --bg-center "${HOME}/.wallpaper"
-xautolock -time 5 -locker 'i3lock-next -w "Type password to unlock..." -f "Open Sans" -s 24 -- -e' &
-compton -b
+#"${HOME}/.dotfiles/wallpaper.py" wallpaper 1920x1080
+env DESKTOP_SESSION="i3" ${HOME}/Projects/InsprWall/InsprWall.py
+xautolock -time 5 -locker 'i3lock -i "${HOME}/.cache/InsprWall/current"' &
+compton &
 redshift-gtk &
 pactl upload-sample /usr/share/sounds/freedesktop/stereo/bell.oga x11-bell
 pactl load-module module-x11-bell sample=x11-bell display=$DISPLAY
 xset b 100
-"${HOME}/.dotfiles/wallpaper.py" wallpaper 1920x1080
 exec i3

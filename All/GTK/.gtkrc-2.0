@@ -1,6 +1,7 @@
-gtk-icon-theme-name = "Numix Circle"
-gtk-theme-name = "Numix"
-gtk-font-name = "Open Sans 12"
-gtk-enable-event-sounds = "true"
-gtk-enable-input-feedback-sounds = "true"
-gtk-sound-theme-name = "freedesktop"
+gtk-icon-theme-name="Numix Circle"
+gtk-cursor-theme-name="Numix-Cursor"
+gtk-theme-name="Numix"
+gtk-font-name="Open Sans 12"
+gtk-enable-event-sounds=1
+gtk-enable-input-feedback-sounds=1
+gtk-sound-theme-name="freedesktop"

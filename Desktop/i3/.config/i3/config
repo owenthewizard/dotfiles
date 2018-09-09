@@ -102,7 +102,7 @@ assign [title="^.*PlayOnLinux.*$"] $ws5
 #assign [title="^.*[wW]ine.*$"] $ws5
 #assign [title="^Terminal$"] $ws2
 #assign [class="^Kodi$" instance="^Kodi$"] $ws10
-#assign [class="^looking-glass-client$" instance="^looking-glass-client$"] $ws6
+assign [class="^looking-glass-client$" instance="^looking-glass-client$"] $ws5
 
 set_from_resource $fg foreground
 set_from_resource $bg background
@@ -200,3 +200,5 @@ exec --no-startup-id "polybar Desktop"
 exec --no-startup-id "firefox"
 #exec --no-startup-id "steam"
 exec --no-startup-id "discord"
+#exec --no-startup-id "looking-glass-client -s -n -F -o opengl:preventBuffer=0"
+#exec --no-startup-id "scream-pulse -i virbr0"

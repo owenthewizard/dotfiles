@@ -2,10 +2,14 @@
 
 # Example: wallpaper.py wallpaper 1920x1080
 
+# Should we keep the most recent wallpaper?
+KEEP_WALLPAPER=True
+
 import json
 import requests
 import tempfile
 
+import os
 import subprocess
 import sys
 
@@ -20,6 +24,13 @@ for post in reddit.json()["data"]["children"]:
         break
 
 image = requests.get(url)
-with tempfile.NamedTemporaryFile(mode="wb") as temp:
-    temp.write(image.content)
-    subprocess.run(["feh", "--no-fehbg", "--image-bg", "black", "--bg-center", temp.name])
+# Could probably obey DRY here... meh
+if KEEP_WALLPAPER:
+    os.chdir(os.environ["HOME"])
+    with open(".wallpaper", mode="wb") as out:
+        out.write(image.content)
+        subprocess.run(["feh", "--no-fehbg", "--image-bg", "black", "--bg-center", out.name])
+else:
+    with tempfile.NamedTemporaryFile(mode="wb") as temp:
+        temp.write(image.content)
+        subprocess.run(["feh", "--no-fehbg", "--image-bg", "black", "--bg-center", temp.name])
