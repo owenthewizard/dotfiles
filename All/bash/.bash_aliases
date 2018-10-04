@@ -34,6 +34,7 @@ if ( command -v grc &> /dev/null ); then
     alias ifconfig="grc ifconfig"
     alias df="grc df"
     alias du="grc du"
+    alias lsblk="grc lsblk"
 fi
 
 if ( command -v pigz &> /dev/null ); then
