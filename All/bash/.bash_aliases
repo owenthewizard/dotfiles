@@ -43,17 +43,14 @@ fi
 
 function mkcd()
 {
-    while [[ $# > 1 ]]; do
-        mkdir -p "${1}"
-        shift
-    done
-    mkdir -p "${1}"
-    cd "${1}"
+    mkdir -p "$@"
+    shift $(( $# - 1 ))
+    cd "$1"
 }
 
 function cdtemp()
 {
-    temp_dir="$(mktemp -d)"
+    local temp_dir="$(mktemp -d)"
     [[ -d "$temp_dir" ]] || return 1
     (trap "rm -rf \"$temp_dir\"" EXIT; cd "$temp_dir"; bash -i)
 }
