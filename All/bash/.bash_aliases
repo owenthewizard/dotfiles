@@ -52,5 +52,5 @@ function cdtemp()
 {
     local temp_dir="$(mktemp -d)"
     [[ -d "$temp_dir" ]] || return 1
-    (trap "rm -rf \"$temp_dir\"" EXIT; cd "$temp_dir"; bash -i)
+    (trap "rm -rf \"$temp_dir\"" EXIT; cd "$temp_dir"; bash --rcfile <(echo "PS1='(temp) $PS1'") -i)
 }
